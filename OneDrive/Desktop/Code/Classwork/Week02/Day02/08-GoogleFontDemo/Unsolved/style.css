@@ -1,0 +1,17 @@
+/**
+*google font
+**/
+body { 
+    font-family: "Skranji" , cursive;}
+
+    .thought1 {
+        color: red;
+    }
+
+    .thought1:hover {
+        color: purple;
+    }
+
+    .thought2:focus {
+        color: aquamarine
+    }

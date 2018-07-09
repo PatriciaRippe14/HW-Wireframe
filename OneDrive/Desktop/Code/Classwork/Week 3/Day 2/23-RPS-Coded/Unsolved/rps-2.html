@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Rock Paper Scissors Part 2
+  </title>
+</head>
+
+<body>
+
+  <div id="game">
+    <h1>ROCK PAPER SCISSORS</h1>
+    <span id="user-key-press">
+      <p>Press r, p, s to begin game.</p>
+    <!-- <span id="user-key-press"></span>
+    <span id="computer-key-press"></span> -->
+  </div>
+
+  <script type="text/javascript">
+    // Creates an array that lists out all of the options (Rock, Paper, or Scissors).
+    var options = ["r", "p", "s"];
+    var wins = 0;
+    var losses = 0;
+    var ties = 0;
+
+
+    // This function is run whenever the user presses a key.
+    document.onkeydown = function () {
+      var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+      
+      console.log("Player 1 chooses " + userGuess);
+
+
+      // // Randomly chooses a choice from the options array. This is the Computer's guess.
+      var computerGuess = options[Math.floor(Math.random() * options.length)];
+      console.log("Computer chooses " + computerGuess);
+
+      if (userGuess == options[0] || options[1] || options[2]) {
+        if (userGuess == "r" && computerGuess == "p") {
+          losses++;
+          // alert("Losses: " + losses);
+          // alert("You lose!");
+        }
+        if (userGuess == "r" && computerGuess == "s") {
+          wins++;
+          // alert("Wins: " + wins);
+          // alert("You win!");
+        }
+        if (userGuess == "p" && computerGuess == "r") {
+          wins++;
+          // alert("Wins: " + wins);
+          // alert("You win!");
+        }
+        if (userGuess == "p" && computerGuess == "s") {
+          losses++;
+          // alert("Losses: " + losses);
+          // alert("You lose!");
+        }
+        if (userGuess == "s" && computerGuess == "r") {
+          losses++;
+          // alert("Losses: " + losses);
+          // alert("You lose!");
+        }
+        if (userGuess == "s" && computerGuess == "p") {
+          wins++;
+          // alert("Wins: " + wins);
+          // alert("You win!");
+        }
+        // Alert for ties
+        if (userGuess == computerGuess) {
+          ties++;
+        // alert("Ties: " + ties);
+        // alert("You tie!");
+        }
+      } else {
+        alert("Losses: " + losses);
+        alert("Please choose r, p, or s");
+      }
+
+    var html = "<p>Player 1 pressed: " + userGuess + "</p>" +
+               "<p>Computer has pressed: " + computerGuess + "</p>" +
+               "<p>Wins: " + wins + "</p>" +
+               "<p>Losses: " + losses + "</p>" +
+               "<p>Ties: " + ties + "</p>";
+    document.querySelector('#game').innerHTML = html;
+};
+  </script>
+
+</body>
+
+</html>
